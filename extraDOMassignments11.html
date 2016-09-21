@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QUESTION 11</title>
+</head>
+
+<body>
+    <input type="text" id="one">First
+    <br>
+    <br>
+    <input type="text" id="two">Second
+    <br>
+    <br>
+    <input type="text" id="three">Third
+    <br>
+    <br>
+    <input name="btn" type="radio" value="One" class="radio">One
+    <br>
+    <br>
+    <input name="btn" type="radio" value="Two" class="radio">Two
+    <br>
+    <br>
+    <select id="state1">
+        <option>NONE</option>
+        <option>New York</option>
+        <option>Texas</option>
+        <option>California</option>
+        <option>Florida</option>
+    </select>
+    <br>
+    <br>
+    <input type="checkbox" id="box">I Agree to the Terms & Conditions.
+    <br>
+    <br>
+    <button id="submit">Submit</button>
+    <script type="text/javascript">
+    var _id = function _id(id) {
+        return document['getElementById'](id);
+    }
+
+    var input1 = _id('one');
+    var input2 = _id('two');
+    var input3 = _id('three');
+    var radioButton = document['getElementsByClassName']('radio');
+    var selection = _id('state1');
+    var checkbox = _id('box');
+    var submit = _id('submit');
+
+   
+
+    input1['addEventListener']('keyup', function() {
+        if (input1.value == "") {
+            console.log("null");
+        } else if (isNaN(input1.value)) {
+            console.log("string");
+        } else {
+            console.log("number");
+        }
+    })
+
+
+    for (var j = 0; j < radioButton.length; j++) {
+        radioButton[j]['addEventListener']('change', function() {
+            for (var i = 0; i < radioButton.length; i++) {
+              
+                if (radioButton[i].checked) {
+                    console.log(this.value);
+
+                }
+
+            }
+
+        });
+    };
+    checkbox['addEventListener']('click', function() {
+        if (checkbox.checked == true) {
+            console.log("Checkbox is checked");
+        } else {
+            console.log("Checkbox is not checked");
+        }
+    });
+
+    selection['addEventListener']('change', function() {
+
+        if (selection.value == "NONE") {
+            console.log("No option selected");
+        } else {
+            console.log("An option has been selected");
+        }
+    });
+
+    submit['addEventListener']('click', function(){
+        console.log("The form has been successfully submit");
+    })
+    </script>
+</body>
+
+</html>
